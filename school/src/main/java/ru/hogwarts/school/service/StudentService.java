@@ -1,45 +1,42 @@
 package ru.hogwarts.school.service;
 
 import org.springframework.stereotype.Service;
+import ru.hogwarts.school.exception.NotFoundException;
 import ru.hogwarts.school.model.Student;
+import ru.hogwarts.school.repository.StudentRepository;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.List;
 
 @Service
 public class StudentService {
 
-    private final Map<Long, Student> students = new HashMap<>();
+    private final StudentRepository studentRepository;
 
-    private long idCounter = 1;
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
 
-    public Long createStudent(Student student) {
-        student.setId(idCounter++);
-        students.put(student.getId(), student);
-
-        return student.getId();
+    public Student createStudent(Student student) {
+        return studentRepository.save(student);
     }
 
     public Student getStudent(Long id) {
-        return students.get(id);
+        return studentRepository.findById(id)
+                .orElseThrow(() ->
+                        new NotFoundException("Student not found: " + id));
     }
 
     public Student updateStudent(Student student) {
-        students.put(student.getId(), student);
-
-        return student;
+        getStudent(student.getId());
+        return studentRepository.save(student);
     }
 
     public void deleteStudent(Long id) {
-        students.remove(id);
+        Student student = getStudent(id);
+        studentRepository.delete(student);
     }
 
-    public Collection<Student> getStudentsByAge(int age) {
-        return students.values()
-                .stream()
-                .filter(student -> student.getAge() == age)
-                .collect(Collectors.toList());
+    public List<Student> getStudentsByAge(int age) {
+        return studentRepository.findByAge(age);
     }
 }
