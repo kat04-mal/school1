@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60c7dc64-5ed6-4ca1-b6a5-8590a7780212" name="Changes" comment="Выполнение дз" />
+    <list default="true" id="60c7dc64-5ed6-4ca1-b6a5-8590a7780212" name="Changes" comment="Выполнение дз БД">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/controller/FacultyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/controller/FacultyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/controller/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/model/Faculty.java" beforeDir="false" afterPath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/model/Faculty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/repository/FacultyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/repository/FacultyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/repository/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/service/FacultyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/service/FacultyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/school/src/main/java/ru/hogwarts/school/service/StudentService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="hw2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -26,7 +36,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/kat04-mal/school.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/kat04-mal/school1.git&quot;,
     &quot;accountId&quot;: &quot;430cba6e-f74d-4907-a233-286edf17e274&quot;
   }
 }</component>
@@ -42,7 +52,8 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "hw3",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Project/Java/school",
@@ -71,7 +82,8 @@
       <updated>1780143430646</updated>
       <workItem from="1780143432401" duration="2850000" />
       <workItem from="1780146353674" duration="18000" />
-      <workItem from="1780146401870" duration="116000" />
+      <workItem from="1780146401870" duration="883000" />
+      <workItem from="1780306226626" duration="923000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -89,7 +101,23 @@
       <option name="project" value="LOCAL" />
       <updated>1780146251546</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Выполнение дз">
+      <option name="closed" value="true" />
+      <created>1780146756304</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1780146756304</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Выполнение дз БД">
+      <option name="closed" value="true" />
+      <created>1780147216178</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1780147216178</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,6 +126,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Выполнение дз" />
-    <option name="LAST_COMMIT_MESSAGE" value="Выполнение дз" />
+    <MESSAGE value="Выполнение дз БД" />
+    <option name="LAST_COMMIT_MESSAGE" value="Выполнение дз БД" />
   </component>
 </project>
