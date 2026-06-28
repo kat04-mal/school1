@@ -40,19 +40,13 @@ public class FacultyService {
 
     public Faculty updateFaculty(Faculty faculty) {
         logger.info("Was invoked method for update faculty");
-
         getFaculty(faculty.getId());
-
         return facultyRepository.save(faculty);
     }
 
     public void deleteFaculty(Long id) {
         logger.info("Was invoked method for delete faculty");
-
         Faculty faculty = getFaculty(id);
-
-        logger.warn("Deleting faculty with id={}", id);
-
         facultyRepository.delete(faculty);
     }
 
@@ -63,12 +57,8 @@ public class FacultyService {
 
     public List<Faculty> findFaculty(String value) {
         logger.info("Was invoked method for find faculty");
-
         return facultyRepository
-                .findByNameContainingIgnoreCaseOrColorContainingIgnoreCase(
-                        value,
-                        value
-                );
+                .findByNameContainingIgnoreCaseOrColorContainingIgnoreCase(value, value);
     }
 
     public Collection<Student> getFacultyStudents(Long facultyId) {

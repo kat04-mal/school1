@@ -24,14 +24,11 @@ public class StudentService {
 
     public Student createStudent(Student student) {
         logger.info("Was invoked method for create student");
-        logger.debug("Creating student {}", student.getName());
-
         return studentRepository.save(student);
     }
 
     public Student getStudent(Long id) {
         logger.info("Was invoked method for get student");
-        logger.debug("Searching student with id={}", id);
 
         return studentRepository.findById(id)
                 .orElseThrow(() -> {
@@ -42,19 +39,13 @@ public class StudentService {
 
     public Student updateStudent(Student student) {
         logger.info("Was invoked method for update student");
-
         getStudent(student.getId());
-
         return studentRepository.save(student);
     }
 
     public void deleteStudent(Long id) {
         logger.info("Was invoked method for delete student");
-
         Student student = getStudent(id);
-
-        logger.warn("Deleting student with id={}", id);
-
         studentRepository.delete(student);
     }
 
