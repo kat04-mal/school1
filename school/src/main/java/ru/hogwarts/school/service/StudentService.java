@@ -3,12 +3,12 @@ package ru.hogwarts.school.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import ru.hogwarts.school.exception.NotFoundException;
-import ru.hogwarts.school.model.Faculty;
 import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.repository.StudentRepository;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 public class StudentService {
@@ -22,45 +22,41 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public Student createStudent(Student student) {
-        logger.info("Was invoked method for create student");
-        return studentRepository.save(student);
+    public List<String> getStudentsNamesStartsWithA() {
+        logger.info("Was invoked method for names starts with A");
+
+        return studentRepository.findAll().stream()
+                .map(Student::getName)
+                .map(String::toUpperCase)
+                .filter(name -> name.startsWith("A"))
+                .sorted()
+                .toList();
     }
 
-    public Student getStudent(Long id) {
-        logger.info("Was invoked method for get student");
+    public double getAverageAge() {
+        logger.info("Was invoked method for average age");
 
-        return studentRepository.findById(id)
-                .orElseThrow(() -> {
-                    logger.error("There is no student with id={}", id);
-                    return new NotFoundException("Student not found: " + id);
-                });
+        return studentRepository.findAll().stream()
+                .mapToInt(Student::getAge)
+                .average()
+                .orElse(0);
     }
 
-    public Student updateStudent(Student student) {
-        logger.info("Was invoked method for update student");
-        getStudent(student.getId());
-        return studentRepository.save(student);
+    public List<Student> getLastStudents() {
+        logger.info("Was invoked method for last students");
+
+        return studentRepository.findAll().stream()
+                .sorted(Comparator.comparingLong(Student::getId).reversed())
+                .limit(5)
+                .toList();
     }
 
-    public void deleteStudent(Long id) {
-        logger.info("Was invoked method for delete student");
-        Student student = getStudent(id);
-        studentRepository.delete(student);
-    }
+    public long getSum() {
+        logger.info("Was invoked method for sum (parallel stream)");
 
-    public List<Student> getStudentsByAge(int age) {
-        logger.info("Was invoked method for get students by age");
-        return studentRepository.findByAge(age);
-    }
-
-    public List<Student> getStudentsBetweenAge(int min, int max) {
-        logger.info("Was invoked method for get students between age");
-        return studentRepository.findByAgeBetween(min, max);
-    }
-
-    public Faculty getStudentFaculty(Long studentId) {
-        logger.info("Was invoked method for get student faculty");
-        return getStudent(studentId).getFaculty();
+        return Stream.iterate(1L, a -> a + 1)
+                .limit(1_000_000)
+                .parallel()
+                .reduce(0L, Long::sum);
     }
 }

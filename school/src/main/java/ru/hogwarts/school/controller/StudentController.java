@@ -1,8 +1,6 @@
 package ru.hogwarts.school.controller;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.hogwarts.school.model.Faculty;
 import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.service.StudentService;
 
@@ -18,42 +16,18 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Student create(@RequestBody Student student) {
-        return studentService.createStudent(student);
+    @GetMapping("/names-a")
+    public List<String> getNamesA() {
+        return studentService.getStudentsNamesStartsWithA();
     }
 
-    @GetMapping("/{id}")
-    public Student get(@PathVariable Long id) {
-        return studentService.getStudent(id);
+    @GetMapping("/average-age")
+    public double getAverageAge() {
+        return studentService.getAverageAge();
     }
 
-    @PutMapping
-    public Student update(@RequestBody Student student) {
-        return studentService.updateStudent(student);
-    }
-
-    @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id) {
-        studentService.deleteStudent(id);
-    }
-
-    @GetMapping
-    public List<Student> byAge(@RequestParam int age) {
-        return studentService.getStudentsByAge(age);
-    }
-
-    @GetMapping("/age-between")
-    public List<Student> findStudentsByAgeBetween(
-            @RequestParam int min,
-            @RequestParam int max) {
-        return studentService.getStudentsBetweenAge(min, max);
-    }
-
-    @GetMapping("/{id}/faculty")
-    public Faculty getFaculty(@PathVariable Long id) {
-        return studentService.getStudentFaculty(id);
+    @GetMapping("/last")
+    public List<Student> getLastStudents() {
+        return studentService.getLastStudents();
     }
 }
